@@ -1,22 +1,11 @@
 # SkillAPI-s
-This fork adds back support to the now unmantained SkillAPI plugin. I'm mostly doing it for personal use, so can't guarantee to do requested changes. But if they're not too time consuming I might :)
-If you want to report a bug or make a suggestion, feel free to create an issue on here. 
 
-* Compiled using IntellIJ IDEA and Maven
+# ATTENTION
 
-## New dynamic editor
-If you use this version, I strongly recommend using the mantained Dynamic editor.
-Skills made with the old editor should still mantain full functionality, but the new one has new stuff.
-* New, mantained editor: http://sentropic.github.io/SkillAPI-s/
-
-## Donations
-I accept donations via PayPal, which I'll be using for the development of my MMORPG Minecraft server: Craftec
-* https://www.paypal.com/paypalme/Sentropic
-
-## Craftec:
-* Discord | https://discord.gg/tr7eRaf
-* Twitter | https://twitter.com/CraftecCR
-* Instagram | https://www.instagram.com/craftec.cr/
+This fork is now unsupported, as the new fork PROSKILLAPI has taken over with a bigger and more time dedicated dev team.
+* Spigot: https://www.spigotmc.org/resources/skillapi-continued-custom-classes-skills-and-more-works-on-1-16-5-proskillapi.91913/
+* GitHub: https://github.com/promcteam/proskillapi
+* Dynamic editor: https://promcteam.com/editor/
 
 ## Useful links
 * Original SkillAPI Wiki    | https://github.com/Eniripsa96/SkillAPI/wiki
