@@ -1482,7 +1482,7 @@ public class PlayerData {
      */
     public void giveMana(double amount, ManaSource source) {
         PlayerManaGainEvent event = new PlayerManaGainEvent(this, amount, source);
-        Bukkit.getPluginManager().callEvent(event);
+        Bukkit.getScheduler().runTask(SkillAPI.getSingleton(), () -> Bukkit.getPluginManager().callEvent(event));
 
         if (!event.isCancelled()) {
             Logger.log(

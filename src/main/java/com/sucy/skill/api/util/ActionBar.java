@@ -30,8 +30,12 @@ import com.rit.sucy.reflect.Reflection;
 import com.rit.sucy.text.TextFormatter;
 import com.rit.sucy.version.VersionManager;
 import com.sucy.skill.log.Logger;
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.minecraft.server.v1_12_R1.IChatBaseComponent;
+import net.minecraft.server.v1_12_R1.PacketPlayOutTitle;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Constructor;
@@ -117,12 +121,10 @@ public class ActionBar
 
         try
         {
-            Object text = constructText.newInstance(TextFormatter.colorString(message));
-            Object data = constructPacket.newInstance(text, messageType);
-            Object handle = getHandle.invoke(player);
-            Object connection = Reflection.getValue(handle, "playerConnection");
-            Method send = Reflection.getMethod(connection, "sendPacket", packet);
-            send.invoke(connection, data);
+            String s = ChatColor.translateAlternateColorCodes('&', message.replace("_", " "));
+            IChatBaseComponent icbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + s + "\"}");
+            PacketPlayOutTitle pack = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.ACTIONBAR,icbc);
+            ((CraftPlayer) player).getHandle().playerConnection.sendPacket(pack);
         }
         catch (Exception ex)
         {

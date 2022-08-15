@@ -82,6 +82,10 @@ public class SkillAPI extends JavaPlugin {
     private final HashMap<String, PlayerAccounts> players = new HashMap<>();
     private final ArrayList<String>               groups  = new ArrayList<>();
 
+    public static SkillAPI getSingleton() {
+        return singleton;
+    }
+
     private final List<SkillAPIListener> listeners = new ArrayList<>();
 
     private CommentedLanguageConfig language;
