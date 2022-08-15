@@ -1576,7 +1576,7 @@ public class Settings {
         final int data = icon.getInt("data", 0);
         if (guiModelData) {
             if (data!=0) {
-                meta.setCustomModelData(data);
+//                meta.setCustomModelData(data);
             }
         } else {
             unassigned.setData(new MaterialData(mat, (byte) data));

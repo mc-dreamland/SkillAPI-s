@@ -31,14 +31,24 @@ import com.sucy.skill.api.particle.target.EffectTarget;
 import com.sucy.skill.api.particle.target.EntityTarget;
 import com.sucy.skill.api.particle.target.FixedTarget;
 import com.sucy.skill.api.util.Nearby;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.EntityEffect;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Server;
+import org.bukkit.World;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.block.PistonMoveReaction;
-import org.bukkit.entity.*;
-import org.bukkit.entity.memory.MemoryKey;
+import org.bukkit.entity.Arrow;
+import org.bukkit.entity.Egg;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.EntityEquipment;
@@ -50,11 +60,8 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.BoundingBox;
-import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -118,26 +125,6 @@ public class TempEntity implements LivingEntity {
         return null;
     }
 
-    @Override
-    public @Nullable Block getTargetBlockExact(int maxDistance) {
-        return null;
-    }
-
-    @Override
-    public @Nullable Block getTargetBlockExact(int maxDistance, @NotNull FluidCollisionMode fluidCollisionMode) {
-        return null;
-    }
-
-    @Override
-    public @Nullable RayTraceResult rayTraceBlocks(double maxDistance) {
-        return null;
-    }
-
-    @Override
-    public @Nullable RayTraceResult rayTraceBlocks(double maxDistance, @NotNull FluidCollisionMode fluidCollisionMode) {
-        return null;
-    }
-
     public Egg throwEgg() {
         return null;
     }
@@ -166,23 +153,13 @@ public class TempEntity implements LivingEntity {
 
     }
 
-    @Override
-    public int getArrowCooldown() { return 0; }
-
-    @Override
-    public void setArrowCooldown(int ticks) {}
-
-    @Override
-    public int getArrowsInBody() { return 0; }
-
-    @Override
-    public void setArrowsInBody(int count) {}
-
     public int getMaximumNoDamageTicks() {
         return 0;
     }
 
-    public void setMaximumNoDamageTicks(int i) {}
+    public void setMaximumNoDamageTicks(int i) {
+
+    }
 
     public double getLastDamage() {
         return 0;
@@ -192,15 +169,21 @@ public class TempEntity implements LivingEntity {
         return 0;
     }
 
-    public void setLastDamage(double v) {}
+    public void setLastDamage(double v) {
 
-    public void _INVALID_setLastDamage(int i) {}
+    }
+
+    public void _INVALID_setLastDamage(int i) {
+
+    }
 
     public int getNoDamageTicks() {
         return 0;
     }
 
-    public void setNoDamageTicks(int i) {}
+    public void setNoDamageTicks(int i) {
+
+    }
 
     public Player getKiller() {
         return null;
@@ -331,17 +314,7 @@ public class TempEntity implements LivingEntity {
     }
 
     @Override
-    public @NotNull BlockFace getFacing() {
-        return null;
-    }
-
-    @Override
-    public @NotNull Pose getPose() {
-        return null;
-    }
-
-    @Override
-    public @NotNull Spigot spigot() {
+    public Spigot spigot() {
         return null;
     }
 
@@ -369,35 +342,10 @@ public class TempEntity implements LivingEntity {
 
     public void setSwimming(final boolean b) { }
 
-    @Override
-    public boolean isRiptiding() {
-        return false;
-    }
-
-    @Override
-    public boolean isSleeping() {
-        return false;
-    }
-
     public void setAI(boolean b) { }
 
     public boolean hasAI() {
         return false;
-    }
-
-    @Override
-    public void attack(@NotNull Entity target) {
-
-    }
-
-    @Override
-    public void swingMainHand() {
-
-    }
-
-    @Override
-    public void swingOffHand() {
-
     }
 
     public void setCollidable(boolean b) {
@@ -408,33 +356,26 @@ public class TempEntity implements LivingEntity {
         return false;
     }
 
-    @Override
-    public @NotNull Set<UUID> getCollidableExemptions() { return null; }
+    public void damage(double v) {
 
-    @Override
-    public <T> @Nullable T getMemory(@NotNull MemoryKey<T> memoryKey) {
-        return null;
+    }
+
+    public void _INVALID_damage(int i) {
+
+    }
+
+    public void damage(double v, Entity entity) {
+
     }
 
     @Override
-    public <T> void setMemory(@NotNull MemoryKey<T> memoryKey, @Nullable T memoryValue) {}
+    public void damage(double v, Entity entity, String s) {
 
-    @Override
-    public @NotNull EntityCategory getCategory() { return EntityCategory.NONE; }
+    }
 
-    @Override
-    public void setInvisible(boolean invisible) {}
+    public void _INVALID_damage(int i, Entity entity) {
 
-    @Override
-    public boolean isInvisible() { return true; }
-
-    public void damage(double v) {}
-
-    public void _INVALID_damage(int i) {}
-
-    public void damage(double v, Entity entity) {}
-
-    public void _INVALID_damage(int i, Entity entity) {}
+    }
 
     public double getHealth() {
         return 1;
@@ -444,17 +385,13 @@ public class TempEntity implements LivingEntity {
         return 0;
     }
 
-    public void setHealth(double v) {}
+    public void setHealth(double v) {
 
-    @Override
-    public double getAbsorptionAmount() {
-        return 0;
     }
 
-    @Override
-    public void setAbsorptionAmount(double v) {}
+    public void _INVALID_setHealth(int i) {
 
-    public void _INVALID_setHealth(int i) {}
+    }
 
     public double getMaxHealth() {
         return 1;
@@ -464,11 +401,17 @@ public class TempEntity implements LivingEntity {
         return 0;
     }
 
-    public void setMaxHealth(double v) {}
+    public void setMaxHealth(double v) {
 
-    public void _INVALID_setMaxHealth(int i) {}
+    }
 
-    public void resetMaxHealth() {}
+    public void _INVALID_setMaxHealth(int i) {
+
+    }
+
+    public void resetMaxHealth() {
+
+    }
 
     public Location getLocation() {
         return target.getLocation().clone();
@@ -485,7 +428,9 @@ public class TempEntity implements LivingEntity {
         return location;
     }
 
-    public void setVelocity(Vector vector) {}
+    public void setVelocity(Vector vector) {
+
+    }
 
     public Vector getVelocity() {
         return new Vector(0, 0, 0);
@@ -499,24 +444,13 @@ public class TempEntity implements LivingEntity {
         return 0;
     }
 
-    @Override
-    public @NotNull BoundingBox getBoundingBox() {
-        return null;
-    }
-
     public boolean isOnGround() {
         return true;
     }
 
-    @Override
-    public boolean isInWater() { return false; }
-
     public World getWorld() {
         return target.getLocation().getWorld();
     }
-
-    @Override
-    public void setRotation(float yaw, float pitch) {}
 
     public boolean teleport(Location location) {
         target = new FixedTarget(location);
@@ -554,9 +488,13 @@ public class TempEntity implements LivingEntity {
         return 0;
     }
 
-    public void setFireTicks(int i) {}
+    public void setFireTicks(int i) {
 
-    public void remove() {}
+    }
+
+    public void remove() {
+
+    }
 
     public boolean isDead() {
         return false;
@@ -566,15 +504,13 @@ public class TempEntity implements LivingEntity {
         return true;
     }
 
-    public void sendMessage(String s) {}
+    public void sendMessage(String s) {
 
-    public void sendMessage(String[] strings) {}
+    }
 
-    @Override
-    public void sendMessage(@Nullable UUID sender, @NotNull String message) {}
+    public void sendMessage(String[] strings) {
 
-    @Override
-    public void sendMessage(@Nullable UUID sender, @NotNull String[] messages) {}
+    }
 
     public Server getServer() {
         return Bukkit.getServer();
@@ -586,7 +522,9 @@ public class TempEntity implements LivingEntity {
     }
 
     @Override
-    public void setPersistent(boolean persistent) {}
+    public void setPersistent(boolean b) {
+
+    }
 
     public String getName() {
         return "Location";
@@ -628,7 +566,9 @@ public class TempEntity implements LivingEntity {
 
     }
 
-    public void setLastDamageCause(EntityDamageEvent entityDamageEvent) {}
+    public void setLastDamageCause(EntityDamageEvent entityDamageEvent) {
+
+    }
 
     public EntityDamageEvent getLastDamageCause() {
         return null;
@@ -642,9 +582,12 @@ public class TempEntity implements LivingEntity {
         return 0;
     }
 
-    public void setTicksLived(int i) {}
+    public void setTicksLived(int i) {
 
-    public void playEffect(EntityEffect entityEffect) {}
+    }
+
+    public void playEffect(EntityEffect entityEffect) {
+    }
 
     public EntityType getType() {
         return EntityType.CHICKEN;

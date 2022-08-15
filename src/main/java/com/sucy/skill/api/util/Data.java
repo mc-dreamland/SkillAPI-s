@@ -58,7 +58,7 @@ public class Data {
             final ItemMeta meta = item.getItemMeta();
             if (SkillAPI.getSettings().useGUIModelData()) {
                 if (data!=0) {
-                    meta.setCustomModelData(data);
+//                    meta.setCustomModelData(data);
                 }
             } else {
                 item.setData(new MaterialData(material, (byte) data));
@@ -93,7 +93,7 @@ public class Data {
 
         ItemMeta meta = item.getItemMeta();
         if (SkillAPI.getSettings().useGUIModelData()) {
-            config.set(DATA, meta.hasCustomModelData() ? meta.getCustomModelData() : 0);
+//            config.set(DATA, meta.hasCustomModelData() ? meta.getCustomModelData() : 0);
         } else {
             config.set(DATA, item.getData().getData());
         }

@@ -305,13 +305,13 @@ public class Particle {
                 dx = 0;
                 dy = 0;
                 dz = 0;
-                object = new org.bukkit.Particle.DustOptions(color, (float) speed);
+//                object = new org.bukkit.Particle.DustOptions(color, (float) speed);
                 break;
             case ITEM_CRACK:
                 ItemStack item = new ItemStack(material);
                 if (SkillAPI.getSettings().useSkillModelData()) {
                     ItemMeta meta = item.getItemMeta();
-                    meta.setCustomModelData(data);
+//                    meta.setCustomModelData(data);
                     item.setItemMeta(meta);
                 } else {
                     item.setData(new MaterialData(material, (byte) data));
@@ -321,7 +321,7 @@ public class Particle {
             case BLOCK_CRACK:
             case BLOCK_DUST:
             case FALLING_DUST:
-                object = material.createBlockData();
+//                object = material.createBlockData();
         }
         for (Player player : players) {
             player.spawnParticle(particle,x,y,z,count,dx,dy,dz,speed,object);

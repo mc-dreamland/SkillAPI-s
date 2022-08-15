@@ -149,7 +149,7 @@ public class GUITool implements ToolMenu
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         if (SkillAPI.getSettings().useGUIModelData()) {
-            meta.setCustomModelData(data.getInt("data"));
+//            meta.setCustomModelData(data.getInt("data"));
         } else {
             item.setData(new MaterialData(material, data.getByte("data")));
         }

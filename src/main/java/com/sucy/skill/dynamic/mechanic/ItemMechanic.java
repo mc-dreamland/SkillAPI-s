@@ -96,7 +96,7 @@ public class ItemMechanic extends MechanicComponent
             meta.setLore(lore);
         }
         if (SkillAPI.getSettings().useSkillModelData()) {
-            meta.setCustomModelData(data);
+//            meta.setCustomModelData(data);
         } else {
             item.setData(new MaterialData(material, (byte) data));
         }

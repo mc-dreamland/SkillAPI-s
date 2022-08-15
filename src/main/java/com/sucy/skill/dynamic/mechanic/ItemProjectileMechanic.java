@@ -147,7 +147,7 @@ public class ItemProjectileMechanic extends MechanicComponent implements Project
         int data = settings.getInt(DATA, 0);
         if (SkillAPI.getSettings().useSkillModelData()) {
             ItemMeta meta = item.getItemMeta();
-            meta.setCustomModelData(data);
+//            meta.setCustomModelData(data);
             item.setItemMeta(meta);
         } else {
             item.setDurability((short) data);
